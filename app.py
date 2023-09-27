@@ -19,20 +19,16 @@ def filtering(request):
     table = '%(table)s' % request.matchdict
     with engine.begin() as conn:
         try:
-            t = text(f"SELECT * FROM {table} WHERE {table}.{column}='{value}'")
-            response = conn.execute(t)
-            table_info = text(f'PRAGMA table_info({table});')
-            table_info = conn.execute(table_info)
-            table_info = [item[1] for item in table_info]
+            response = conn.execute(text(f"SELECT * FROM {table} WHERE {table}.{column}='{value}'"))
+            table_info = [item[1] for item in conn.execute(text(f'PRAGMA table_info({table});'))]
+            return {'response': response, 'table': table, 'table_info': table_info}
         except SQLAlchemyError:
             return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'response': response, 'table': table, 'table_info': table_info}
 
 
 db_err_msg = """\
 Pyramid is having a problem using your SQL database.
 May be you have entered wrong Table Name or wrong Column Name.
-Table Name and Column Name needs to be capitalized or CamelCased.
 /{Table}/{Column}/{value}
 After you fix the problem, please restart the Pyramid application to
 try it again.
