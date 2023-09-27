@@ -7,7 +7,7 @@ This is a simple Pyramid application that demonstrates how to filter data from a
 To start the application, run the following command:
 
 ```
-python main.py
+python app.py
 ```
 
 This will start a web server on port 6543. You can then access the application in your web browser at `http://localhost:6543`.
