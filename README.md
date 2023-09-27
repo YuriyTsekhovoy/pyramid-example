@@ -18,7 +18,7 @@ To filter data from the database, simply enter the table name, column name, and 
 http://localhost:6543/{table}/{column}/{value}
 ```
 
-For example, to filter the `Track` table by the `Composer` column with the value `AC/DC`, you would enter the following URL:
+For example, to filter the `Track` table by the `Composer` column with the value `Jerry Cantrell`, you would enter the following URL:
 
 ```
 http://localhost:6543/Track/Composer/Jerry Cantrell
