@@ -18,13 +18,13 @@ To filter data from the database, simply enter the table name, column name, and 
 http://localhost:6543/{table}/{column}/{value}
 ```
 
-For example, to filter the `Artist` table by the `Name` column with the value `AC/DC`, you would enter the following URL:
+For example, to filter the `Track` table by the `Composer` column with the value `AC/DC`, you would enter the following URL:
 
 ```
-http://localhost:6543/Track/Composer/AC/DC
+http://localhost:6543/Track/Composer/Jerry Cantrell
 ```
 
-The application will then return a list of all rows in the `Track` table where the `Composer` column is equal to `AC/DC`.
+The application will then return a list of all rows in the `Track` table where the `Composer` column is equal to `Jerry Cantrell`.
 
 **Table information**
 
@@ -43,6 +43,4 @@ This application requires the following Python libraries:
 * Mako
 * Pyramid Debug Toolbar
 
-**License**
-
-This application is licensed under the MIT License.
+This application uses `Chinook_Sqlite.sqlite` database. It needs to be placed in `pyramid-example` directory or you need to provide current DB location in `app.py`
