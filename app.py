@@ -5,11 +5,8 @@ from pyramid.response import Response
 from pyramid.view import view_config
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('sqlite:///Chinook_Sqlite.sqlite')
-Session = sessionmaker(bind=engine)
-session = Session(bind=engine)
 
 
 @view_config(
